@@ -11,7 +11,7 @@
  	//Global Definitions
  	
  	static String iData, iFName, iLName, iAge, iToy1, iToy2, oTax, oSubtotal, oTotal;
- 	static double iPrice1, iPrice2, cSubtotal, cTax, cTotal;
+ 	static double iPrice1, iPrice2, cSubtotal, cTax, cTotal, cDiscountT, Discount = .2;
  	
  	static Scanner scanner;
  	static DecimalFormat dfTax, dfTotal, dfSubtotal;
@@ -30,9 +30,10 @@
  		public static void init() {
  			scanner = new Scanner(System.in);
  			scanner.useDelimiter("\r\n");
- 			dfSubtotal = new DecimalFormat ("###.00");
- 			dfTax = new DecimalFormat ("###.00");
- 			dfTotal = new DecimalFormat ("###.00");
+ 			dfSubtotal = new DecimalFormat ("####.00");
+ 			dfTax = new DecimalFormat ("####.00");
+ 			dfTotal = new DecimalFormat ("####.00");
+ 			dfDiscount = new DecimalFormat ("####.00");
  		
  	}
  		//Input Method
@@ -94,8 +95,8 @@
  		public static void calcs() {
  			cSubtotal = iPrice1 + iPrice2;
  			cTax = cSubtotal * .07;
- 			cTotal = cSubtotal + cTax;
- 			
+ 			cDiscountT = cSubtotal * Discount;
+ 			cTotal = (cSubtotal + cTax) - cDiscountT;
  			
  			
  		
@@ -113,6 +114,7 @@
  			oSubtotal = dfSubtotal.format(cSubtotal);
  			oTax = dfTax.format(cTax);
  			oTotal = dfTotal.format(cTotal);
+ 			oDiscount = dfDiscont.format(cDiscountT)
  			
  			
  			System.out.println("\n\nHello, " + iFName + " " + iLName);
@@ -123,6 +125,7 @@
  			System.out.println("Toy 2 costed: $" + iPrice2);
  			System.out.println("Subtotal Price: $" + oSubtotal);
  			System.out.println("Tax: $" + oTax);
+ 			System.out.println("Discount: $" + oDiscount);
  			System.out.println("Total Price: $" + oTotal);
  			System.out.println("Merry Christmas! Enter a key to end.");
  		
