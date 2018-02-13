@@ -1,6 +1,7 @@
 /**
  *This program helps input a childs name, age, and two toys along with prices to calculate a total cost
- *12/05/2017 Casey Thompson
+ *12/05/2017 yasir ali
+
  */
  
  import java.util.*;
